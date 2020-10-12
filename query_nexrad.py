@@ -7,15 +7,11 @@ import boto3
 from suntime import Sun
 from botocore import UNSIGNED
 from botocore.config import Config
-if len(sys.argv) > 1:
-    user_site = sys.argv[1]
-else:
-    user_site = None
-if len(sys.argv) > 2:
-    start_date_user = sys.argv[2]
-else:
-    start_date_user = None
-print(start_date_user, user_site)
+
+user_slice_start = int(sys.argv[1]) if len(sys.argv) > 1 else None
+user_slice_end = int(sys.argv[2]) if len(sys.argv) > 2 else None
+
+
 ROOT_PATH = '/home/btaylor/nexrad_data/'
 NEXRAD_L2_BUCKET = 'noaa-nexrad-level2'
 SITES =['KABR', 'KABX', 'KAKQ', 'KAMA', 'KAMX', 'KAPX',
@@ -36,13 +32,14 @@ SITES =['KABR', 'KABX', 'KAKQ', 'KAMA', 'KAMX', 'KAPX',
         'KMAX', 'KMBX', 'KMHX', 'KMKX', 'KMLB', 'KMOB',
         'KMPX', 'KMQT', 'KMRX']
 
-SITES = SITES[2:]
-start_date = datetime.strptime(start_date_user, "%Y%m%d") if start_date_user else datetime(2018, 9, 1)
+start_date = datetime(2018, 9, 1)
 end_date = datetime(2019, 9, 30)
 s3 = boto3.client('s3', config=Config(signature_version=UNSIGNED))
-selected_sites = [user_site] if user_site else SITES
 
-for site in selected_sites:
+
+sites_sliced = SITES[user_slice_start:user_slice_end] if user_slice_end else SITES
+
+for site in sites_sliced:
     print(site)
     output_file = open("output/"+site+".asc", "a")
     today = start_date
