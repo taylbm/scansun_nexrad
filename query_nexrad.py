@@ -18,7 +18,7 @@ else:
 print(start_date_user, user_site)
 ROOT_PATH = '/home/btaylor/nexrad_data/'
 NEXRAD_L2_BUCKET = 'noaa-nexrad-level2'
-SITES =['KABX', 'KAKQ', 'KAMA', 'KAMX', 'KAPX',
+SITES =['KABR', 'KABX', 'KAKQ', 'KAMA', 'KAMX', 'KAPX',
         'KARX', 'KATX', 'KBBX', 'KBGM', 'KBHX', 'KBIS',
         'KBLX', 'KBMX', 'KBOX', 'KBRO', 'KBUF', 'KBYX',
         'KCAE', 'KCBW', 'KCBX', 'KCCX', 'KCLE', 'KCLX',
@@ -81,7 +81,7 @@ for site in selected_sites:
                 first_today = False
             sr_diff = (today_sr - file_dt).total_seconds()
             ss_diff = (today_sr - file_dt).total_seconds()
-            if sr_diff < 5400 or ss_diff < 5400:
+            if sr_diff < 10800 or ss_diff < 10800:
                 if not os.path.exists(ROOT_PATH + key_path):
                     os.makedirs(ROOT_PATH + key_path)
                 if not os.path.exists(ROOT_PATH + key):
