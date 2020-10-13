@@ -69,7 +69,7 @@ for site in sites_sliced:
                  lon = [float(item.split(':')[-1]) for item in str(out.stdout, 'utf-8').split('\n') if "Longitude" in item][0]
                  first = False
             file_name = key.split('/')[-1]
-            file_dt = datetime.strptime(file_name.replace('_', '').split('V')[0][4:], "%Y%m%d%H%M%S")
+            file_dt = datetime.strptime(file_name.replace('_', '').split('V06')[0][4:], "%Y%m%d%H%M%S")
             file_dt = file_dt.replace(tzinfo=tz.tzutc())
             if first_today:
                 sun = Sun(lat, lon)
