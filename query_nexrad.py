@@ -30,7 +30,14 @@ SITES =['KABR', 'KABX', 'KAKQ', 'KAMA', 'KAMX', 'KAPX',
         'KLCH', 'KLGX', 'KLIX', 'KLNX', 'KLOT', 'KLRX',
         'KLSX', 'KLTX', 'KLVX', 'KLWX', 'KLZK', 'KMAF',
         'KMAX', 'KMBX', 'KMHX', 'KMKX', 'KMLB', 'KMOB',
-        'KMPX', 'KMQT', 'KMRX']
+        'KMPX', 'KMQT', 'KMRX', 'KMSX',	'KMTX',	'KMUX',		
+        'KMVX', 'KNKX',	'KNQA',	'KOAX',	'KOHX', 'KOKX',			
+        'KOTX', 'KPAH', 'KPBZ', 'KPDT',	'KPOE',	'KPUX',			
+        'KRAX',	'KRGX', 'KRIW',	'KRLX',	'KRTX',	'KSFX',		
+        'KSGF', 'KSHV', 'KSJT',	'KSOX',	'KSRX',	'KTBW',			
+        'KTFX',	'KTLH', 'KTLX', 'KTWX', 'KTYX', 'KUEX',
+        'KVAX',	'KVBX', 'KVNX',	'KVTX', 'KVWX',	'KYUX']
+
 
 start_date = datetime(2018, 9, 1)
 end_date = datetime(2019, 9, 30)
