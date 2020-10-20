@@ -85,7 +85,7 @@ for site in sites_sliced:
                 first_today = False
             sr_diff = (today_sr - file_dt).total_seconds()
             ss_diff = (today_ss - file_dt).total_seconds()
-            if sr_diff < 10800 or ss_diff < 10800:
+            if -7200 < sr_diff < 0 or 0 > ss_diff < 7200:
                 if not os.path.exists(ROOT_PATH + key_path):
                     os.makedirs(ROOT_PATH + key_path)
                 if not os.path.exists(ROOT_PATH + key):
