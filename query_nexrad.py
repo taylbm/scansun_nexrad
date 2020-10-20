@@ -77,7 +77,7 @@ for site in sites_sliced:
                 today_ss = sun.get_sunset_time(today)
                 first_today = False
             sr_diff = (today_sr - file_dt).total_seconds()
-            ss_diff = (today_sr - file_dt).total_seconds()
+            ss_diff = (today_ss - file_dt).total_seconds()
             if sr_diff < 10800 or ss_diff < 10800:
                 if not os.path.exists(ROOT_PATH + key_path):
                     os.makedirs(ROOT_PATH + key_path)
