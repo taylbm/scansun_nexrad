@@ -64,7 +64,7 @@ for site in sites_sliced:
         for item in contents:
             key = item.get("Key")
             print(key)
-            if "MDM" in key or "V03" in key or "V05" in key::
+            if "MDM" in key or "V03" in key or "V05" in key:
                 continue
             key_path = '/'.join(key.split('/')[:-1])
             if not os.path.exists(ROOT_PATH + key_path):
