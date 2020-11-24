@@ -10,7 +10,7 @@ from botocore.config import Config
 
 user_slice_start = int(sys.argv[1]) if len(sys.argv) > 1 else None
 user_slice_end = int(sys.argv[2]) if len(sys.argv) > 2 else None
-
+user_site = sys.argv[3] if len(sys.argv) > 3 else None
 
 ROOT_PATH = '/home/btaylor/nexrad_data/'
 NEXRAD_L2_BUCKET = 'noaa-nexrad-level2'
@@ -45,8 +45,9 @@ s3 = boto3.client('s3', config=Config(signature_version=UNSIGNED))
 
 
 sites_sliced = SITES[user_slice_start:user_slice_end] if user_slice_end else SITES
+sites = [user_site] if user_site else sites_sliced
 
-for site in sites_sliced:
+for site in sites:
     print(site)
     output_file = open("output/"+site+".asc", "a")
     today = start_date
